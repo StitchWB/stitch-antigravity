@@ -203,5 +203,9 @@
     "storage": {
       "sqlite": false
     }
+  },
+  "generated_by": {
+    "tool": "stitch_plugin_tools",
+    "scaffold": 3
   }
 }
