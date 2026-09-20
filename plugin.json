@@ -1,0 +1,207 @@
+{
+  "schema": "stitch.plugin/v2",
+  "id": "stitch-antigravity",
+  "name": "Stitch Antigravity",
+  "version": "0.1.0",
+  "service": "antigravity",
+  "kind": "service",
+  "engine": {
+    "min": "0.3.0",
+    "api": 2
+  },
+  "depends": [],
+  "entry": {
+    "module": "stitch_antigravity"
+  },
+  "capabilities": [],
+  "outputs": [],
+  "signature": "",
+  "contributions": {
+    "commands": [
+      {
+        "name": "auth_flow_start",
+        "readonly": false
+      },
+      {
+        "name": "auth_flow_status",
+        "readonly": true
+      },
+      {
+        "name": "auth_flow_cancel",
+        "readonly": false
+      },
+      {
+        "name": "list_auth_files",
+        "readonly": true
+      },
+      {
+        "name": "get_oauth_config",
+        "readonly": true
+      }
+    ],
+    "ui": {
+      "kind": "declarative",
+      "tabs": [
+        {
+          "id": "antigravity",
+          "label": "stitch-antigravity.tab",
+          "icon": "Orbit",
+          "page": "main"
+        }
+      ],
+      "page": {
+        "title": "stitch-antigravity.title",
+        "nodes": [
+          {
+            "kind": "section",
+            "title": "stitch-antigravity.list.detectedTitle",
+            "nodes": [
+              {
+                "kind": "table",
+                "id": "auth-files",
+                "columns": [
+                  {
+                    "key": "path",
+                    "label": "stitch-antigravity.table.path"
+                  },
+                  {
+                    "key": "expiresAt",
+                    "label": "stitch-antigravity.list.expiresLabel"
+                  },
+                  {
+                    "key": "status",
+                    "label": "stitch-antigravity.table.status"
+                  }
+                ],
+                "source": {
+                  "command": "list_auth_files"
+                }
+              }
+            ]
+          },
+          {
+            "kind": "section",
+            "nodes": [
+              {
+                "kind": "button",
+                "id": "refresh-auth-files",
+                "label": "stitch-antigravity.actions.refresh",
+                "command": "list_auth_files",
+                "variant": "secondary"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "i18n": {
+      "en": {
+        "stitch-antigravity": {
+          "title": "Antigravity",
+          "tab": "Antigravity",
+          "table": {
+            "path": "Path",
+            "status": "Status"
+          },
+          "actions": {
+            "checkStatus": "Check status",
+            "checking": "Checking…",
+            "copyAuthUrl": "Copy auth URL",
+            "loginOAuth": "Login (OAuth)",
+            "openUrl": "Open URL",
+            "refresh": "Refresh"
+          },
+          "empty": {
+            "noCredentialsDescription": "Login via OAuth to generate an auth file, or refresh if you already logged in via browser.",
+            "noCredentialsTitle": "No Antigravity credentials found"
+          },
+          "errors": {
+            "oauthPollFailed": "OAuth poll failed: {msg}",
+            "scanAuthFilesFailed": "Failed to scan auth files: {msg}",
+            "startLoginFailed": "Failed to start login: {msg}"
+          },
+          "list": {
+            "detectedTitle": "Detected Antigravity auth files",
+            "expiresLabel": "Expires",
+            "expiryStatus": {
+              "expired": "Expired",
+              "expiring": "Expires soon",
+              "valid": "Valid"
+            },
+            "unknownExpiry": "Unknown"
+          },
+          "modal": {
+            "authUrlLabel": "Auth URL",
+            "copyAuthUrlTooltip": "Copy auth URL to clipboard",
+            "oauthInstructions": "Complete the login in your browser. Then click “Check status” until it completes.",
+            "oauthTitle": "Antigravity OAuth"
+          },
+          "status": {
+            "credentials": "{count} credential(s)",
+            "credentialsWithExpired": "{count} credential(s) · {expired} expired"
+          },
+          "toasts": {
+            "loginCompletedRefreshing": "Login completed. Refreshing auth files...",
+            "oauthFailedGeneric": "OAuth failed",
+            "oauthTimedOut": "OAuth timed out"
+          }
+        }
+      },
+      "ru": {
+        "stitch-antigravity": {
+          "title": "Antigravity",
+          "tab": "Antigravity",
+          "table": {
+            "path": "Путь",
+            "status": "Статус"
+          },
+          "actions": {
+            "checkStatus": "Проверить статус",
+            "checking": "Проверяем…",
+            "copyAuthUrl": "Скопировать auth URL",
+            "loginOAuth": "Войти (OAuth)",
+            "openUrl": "Открыть URL",
+            "refresh": "Обновить"
+          },
+          "empty": {
+            "noCredentialsDescription": "Войдите через OAuth, чтобы создать auth-файл, или нажмите «Обновить», если вы уже логинились в браузере.",
+            "noCredentialsTitle": "Не найдены креды Antigravity"
+          },
+          "errors": {
+            "oauthPollFailed": "Ошибка проверки OAuth статуса: {msg}",
+            "scanAuthFilesFailed": "Не удалось просканировать auth файлы: {msg}",
+            "startLoginFailed": "Не удалось начать вход: {msg}"
+          },
+          "list": {
+            "detectedTitle": "Найденные auth файлы Antigravity",
+            "expiresLabel": "Истекает",
+            "expiryStatus": {
+              "expired": "Истёк",
+              "expiring": "Скоро истечёт",
+              "valid": "Действителен"
+            },
+            "unknownExpiry": "Неизвестно"
+          },
+          "modal": {
+            "authUrlLabel": "URL авторизации",
+            "copyAuthUrlTooltip": "Скопировать auth URL в буфер обмена",
+            "oauthInstructions": "Завершите вход в браузере. Затем нажимайте «Проверить статус», пока не завершится.",
+            "oauthTitle": "Antigravity OAuth"
+          },
+          "status": {
+            "credentials": "Кредов: {count}",
+            "credentialsWithExpired": "Кредов: {count} · истекло: {expired}"
+          },
+          "toasts": {
+            "loginCompletedRefreshing": "Вход завершён. Обновляем auth файлы…",
+            "oauthFailedGeneric": "OAuth завершился с ошибкой",
+            "oauthTimedOut": "OAuth не завершился вовремя"
+          }
+        }
+      }
+    },
+    "storage": {
+      "sqlite": false
+    }
+  }
+}
