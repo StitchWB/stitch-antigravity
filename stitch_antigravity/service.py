@@ -7,7 +7,8 @@ thread, so session transitions are guarded by ``_state_lock``.
 Wire constraint (vendored rpc_server._send_response): any result dict with a
 top-level ``error`` key becomes a JSON-RPC error response — the host surfaces
 it as RpcCallError, never a traceback.  ``auth_flow_start`` uses this for the
-``oauth_not_configured`` case.
+``oauth_not_configured`` case.  Every OTHER command must therefore keep the
+``error`` key out of its results; flow failures surface via ``errorMessage``.
 
 The auth-file scanner reads STITCH_AUTH_DIR / STITCH_CONFIG_DIR from the
 environment: the plugin child runs with a sandbox-scoped USERPROFILE, so the
@@ -171,21 +172,22 @@ def auth_flow_status(params: dict[str, Any] | None = None) -> dict[str, Any]:
             "provider": PROVIDER_ID,
             "phase": "unknown",
             "state": "",
-            "error": None,
             "expiresAt": 0,
         }
     if session["phase"] == "pending" and session["expires_at"] <= int(time.time()):
         with _state_lock:
             session["phase"] = "expired"
         _write_session(session)
-    return {
+    result: dict[str, Any] = {
         "sessionId": session["session_id"],
         "provider": PROVIDER_ID,
         "phase": session["phase"],
         "state": session["oauth_state"],
-        "error": session.get("error"),
         "expiresAt": session["expires_at"],
     }
+    if session.get("error"):
+        result["errorMessage"] = session["error"]
+    return result
 
 
 def auth_flow_cancel(params: dict[str, Any] | None = None) -> dict[str, Any]:
