@@ -207,5 +207,59 @@
   "generated_by": {
     "tool": "stitch_plugin_tools",
     "scaffold": 3
-  }
+  },
+  "description": {
+    "ru": "Вход в Antigravity через Google OAuth (PKCE + loopback): запуск потока авторизации, опрос статуса и создание auth-файлов. Сканирует найденные креды и показывает срок их действия на вкладке Antigravity.",
+    "en": "Antigravity sign-in via Google OAuth (PKCE + loopback): starts the auth flow, polls its status and produces auth files. Scans detected credentials and shows their expiry on the Antigravity tab."
+  },
+  "author": "WhiteBite",
+  "category": "ide-integration",
+  "status": "beta",
+  "icon": "🚀",
+  "features": [
+    {
+      "title": {
+        "ru": "OAuth-поток Google: PKCE и loopback-приёмник с TTL сессии",
+        "en": "Google OAuth flow: PKCE and loopback receiver with session TTL"
+      },
+      "status": "stable"
+    },
+    {
+      "title": {
+        "ru": "Сканирование auth-файлов Antigravity со статусом срока действия",
+        "en": "Antigravity auth-file scanning with expiry status"
+      },
+      "status": "stable"
+    },
+    {
+      "title": {
+        "ru": "Опрос статуса потока и отмена (auth_flow_status/cancel)",
+        "en": "Flow status polling and cancel (auth_flow_status/cancel)"
+      },
+      "status": "stable"
+    },
+    {
+      "title": {
+        "ru": "Вкладка Antigravity: таблица auth-файлов и OAuth-модал",
+        "en": "Antigravity tab: auth-file table and OAuth modal"
+      },
+      "status": "stable"
+    }
+  ],
+  "changelog": [
+    {
+      "version": "0.1.0",
+      "date": "2026-09-20",
+      "changes": [
+        {
+          "ru": "OAuth-вход Google и auth-файлы Antigravity",
+          "en": "Google OAuth sign-in and Antigravity auth files"
+        },
+        {
+          "ru": "Декларативная вкладка со списком кредов и сроками действия",
+          "en": "Declarative tab with credential list and expiry"
+        }
+      ]
+    }
+  ]
 }
