@@ -104,46 +104,11 @@
             "status": "Status"
           },
           "actions": {
-            "checkStatus": "Check status",
-            "checking": "Checking…",
-            "copyAuthUrl": "Copy auth URL",
-            "loginOAuth": "Login (OAuth)",
-            "openUrl": "Open URL",
             "refresh": "Refresh"
-          },
-          "empty": {
-            "noCredentialsDescription": "Login via OAuth to generate an auth file, or refresh if you already logged in via browser.",
-            "noCredentialsTitle": "No Antigravity credentials found"
-          },
-          "errors": {
-            "oauthPollFailed": "OAuth poll failed: {msg}",
-            "scanAuthFilesFailed": "Failed to scan auth files: {msg}",
-            "startLoginFailed": "Failed to start login: {msg}"
           },
           "list": {
             "detectedTitle": "Detected Antigravity auth files",
-            "expiresLabel": "Expires",
-            "expiryStatus": {
-              "expired": "Expired",
-              "expiring": "Expires soon",
-              "valid": "Valid"
-            },
-            "unknownExpiry": "Unknown"
-          },
-          "modal": {
-            "authUrlLabel": "Auth URL",
-            "copyAuthUrlTooltip": "Copy auth URL to clipboard",
-            "oauthInstructions": "Complete the login in your browser. Then click “Check status” until it completes.",
-            "oauthTitle": "Antigravity OAuth"
-          },
-          "status": {
-            "credentials": "{count} credential(s)",
-            "credentialsWithExpired": "{count} credential(s) · {expired} expired"
-          },
-          "toasts": {
-            "loginCompletedRefreshing": "Login completed. Refreshing auth files...",
-            "oauthFailedGeneric": "OAuth failed",
-            "oauthTimedOut": "OAuth timed out"
+            "expiresLabel": "Expires"
           }
         }
       },
@@ -156,46 +121,11 @@
             "status": "Статус"
           },
           "actions": {
-            "checkStatus": "Проверить статус",
-            "checking": "Проверяем…",
-            "copyAuthUrl": "Скопировать auth URL",
-            "loginOAuth": "Войти (OAuth)",
-            "openUrl": "Открыть URL",
             "refresh": "Обновить"
-          },
-          "empty": {
-            "noCredentialsDescription": "Войдите через OAuth, чтобы создать auth-файл, или нажмите «Обновить», если вы уже логинились в браузере.",
-            "noCredentialsTitle": "Не найдены креды Antigravity"
-          },
-          "errors": {
-            "oauthPollFailed": "Ошибка проверки OAuth статуса: {msg}",
-            "scanAuthFilesFailed": "Не удалось просканировать auth файлы: {msg}",
-            "startLoginFailed": "Не удалось начать вход: {msg}"
           },
           "list": {
             "detectedTitle": "Найденные auth файлы Antigravity",
-            "expiresLabel": "Истекает",
-            "expiryStatus": {
-              "expired": "Истёк",
-              "expiring": "Скоро истечёт",
-              "valid": "Действителен"
-            },
-            "unknownExpiry": "Неизвестно"
-          },
-          "modal": {
-            "authUrlLabel": "URL авторизации",
-            "copyAuthUrlTooltip": "Скопировать auth URL в буфер обмена",
-            "oauthInstructions": "Завершите вход в браузере. Затем нажимайте «Проверить статус», пока не завершится.",
-            "oauthTitle": "Antigravity OAuth"
-          },
-          "status": {
-            "credentials": "Кредов: {count}",
-            "credentialsWithExpired": "Кредов: {count} · истекло: {expired}"
-          },
-          "toasts": {
-            "loginCompletedRefreshing": "Вход завершён. Обновляем auth файлы…",
-            "oauthFailedGeneric": "OAuth завершился с ошибкой",
-            "oauthTimedOut": "OAuth не завершился вовремя"
+            "expiresLabel": "Истекает"
           }
         }
       }
