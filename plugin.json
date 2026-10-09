@@ -2,7 +2,7 @@
   "schema": "stitch.plugin/v2",
   "id": "stitch-antigravity",
   "name": "Stitch Antigravity",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "service": "antigravity",
   "kind": "service",
   "engine": {
@@ -177,6 +177,13 @@
     }
   ],
   "changelog": [
+    {
+      "version": "0.1.1",
+      "date": "2026-10-09",
+      "changes": [
+        "Zero-reference i18n keys removed"
+      ]
+    },
     {
       "version": "0.1.0",
       "date": "2026-09-20",
